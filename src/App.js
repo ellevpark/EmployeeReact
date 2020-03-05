@@ -71,8 +71,7 @@ class App extends Component {
           type="text"
           placeholder="name"
         />
-      <Wrapper id="5" onClick={this.whatever}>
-        asdfhalksjf
+      <Wrapper>
         <h1 className="title">Employees List</h1>
         <button onClick={this.sortEmployees}>Sort By Name</button>
         <EmployeeTable employees = {this.state.employees} name = {this.state.name}/>
