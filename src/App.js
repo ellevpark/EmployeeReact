@@ -9,19 +9,17 @@ class App extends Component {
   state = {
     employees,
     data:[],
-    vegetable: "asparagus",
     name: ""
   };
   
  
   allEmployees = () => {
-    return this.state.employees.map(({id, name, image, occupation,location}) => 
+    return this.state.employees.map(({id, name, occupation,location}) => 
       (
         <EmployeeTable 
         key = {id}
         id={id}
         name = {name}
-        image = {image}
         occupation = {occupation}
         location = {location}
         />
@@ -63,20 +61,25 @@ class App extends Component {
   render (){
     console.log(this.state)
     return (
-      <div>
-        <input
+      
+    
+      <Wrapper>
+    
+        <h1 className="title">Employees List</h1>
+       
+        <input className= "input"
           value={this.state.name}
           name="name"
           onChange={this.handleInputChange}
           type="text"
-          placeholder="name"
+          placeholder="Search by Name"
         />
-      <Wrapper>
-        <h1 className="title">Employees List</h1>
-        <button onClick={this.sortEmployees}>Sort By Name</button>
+
+        <button className="btn btn-outline-secondary" onClick={this.sortEmployees}>Sort By Name</button>
+       
         <EmployeeTable employees = {this.state.employees} name = {this.state.name}/>
+      
       </Wrapper>
-      </div>
   );
   };
 }
